@@ -1,6 +1,16 @@
 part of 'stepform_bloc.dart';
 
-@immutable
-abstract class StepformState {}
+class StepFormState extends Equatable {
+  const StepFormState({this.all = const <Data>[]});
+  final List<Data> all;
 
-class StepformInitial extends StepformState {}
+  StepFormState copyWith({
+    List<Data>? all,
+  }) {
+    return StepFormState(all: all ?? this.all);
+  }
+
+  @override
+  // TODO: implement props
+  List<Object?> get props => [all];
+}
